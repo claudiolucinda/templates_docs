@@ -24,3 +24,5 @@ Os diferentes XSL referem-se aos diferentes modelos
 * master-thesis.tex -- Modelo de Dissertação no LaTeX. Necessida do pacote **abntex2** para funcionar. Se você configurou direitinho seu LaTeX, ele se encarrega de puxar o pacote do CTAN.
 
 * beamer-template.tex -- Modelo de apresentação LaTeX usando Beamer. Da mesma forma, imagino que precise do pacote **abntex2** para funcionar. 
+
+* logo.jpg -- USP logo
