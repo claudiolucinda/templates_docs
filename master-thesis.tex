@@ -1,0 +1,644 @@
+
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Trabalho Academico (tese de doutorado, dissertacao de
+% mestrado e trabalhos monograficos em geral) em conformidade com 
+% ABNT NBR 14724:2011: Informacao e documentacao - Trabalhos academicos -
+% Apresentacao
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em verso e anverso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	]{abntex2}
+
+
+	% ---
+	% PACOTES
+	% ---
+
+	% ---
+	% Pacotes fundamentais 
+	% ---
+	\usepackage{cmap}				% Mapear caracteres especiais no PDF
+	\usepackage{lmodern}			% Usa a fonte Latin Modern			
+	\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+	\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos) - formatação de saída (ansinew)
+	\usepackage{lastpage}			% Usado pela Ficha catalográfica
+	\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+	%\usepackage{color}				% Controle das cores
+	\usepackage{colortbl}
+	\usepackage{enumitem}
+	\usepackage{graphicx}			% Inclusão de gráficos
+	\usepackage{rotating}			% Para rotacionar a página (landscape)
+	\usepackage{array}	
+	\usepackage{multirow}			% Tabelas
+	\usepackage{makeidx}
+	\usepackage{nicefrac}			% Frações
+	\usepackage[fleqn]{amsmath}			% pacote matemático
+	\usepackage{mathtools}   % http://en.wikibooks.org/wiki/LaTeX/Mathematics
+	\usepackage{makeidx}
+	\usepackage{xfrac}
+	%\usepackage{subfiles} % Para compilar sub-files (child documents) em separado. Chamamos os childfiles como \subfile{filename}. Os childfiles começam com as linhas: \documentclass[main.tex]{subfiles} e \begin{document} 
+	\usepackage{listings}
+	\usepackage{paralist}   % Para Criar Listas enumeradas na linha de texto (inline), usado com \begin{inparaenum}[\itshape a\upshape)]
+	\usepackage{pdfpages}   % para incluir arquivos em pdf
+	% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+	\usepackage{lipsum}		% para geração de dummy text
+	% Pacotes de citações
+	\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+	\usepackage[alf,bibjustif]{abntex2cite}			 % Citações padrão ABNT (bibjustif)
+	\usepackage{empheq}
+	%\usepackage{natbib}
+	\usepackage{pbox}
+	%\usepackage{glossaries}
+	%\makenomenclature
+	%\makeglossaries
+
+	\usepackage{arydshln}  % dashline in tables
+	
+	\definecolor{lightgray}{gray}{0.9}
+	%\usepackage{colortbl}  % color in tables
+	%\definecolor{Gray}{gray}{0.9}
+	
+
+	% --- 
+	% CONFIGURAÇÕES DE PACOTES
+	% --- 
+
+
+
+
+
+	% Configurações do pacote backref
+	% Usado sem a opção hyperpageref de backref
+	\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+	% Texto padrão antes do número das páginas
+	\renewcommand{\backref}{}
+	% Define os textos da citação
+	\renewcommand*{\backrefalt}[4]{
+		\ifcase #1 %
+			Nenhuma citação no texto.%
+		\or
+			Citado na página #2.%
+		\else
+			Citado #1 vezes nas páginas #2.%
+		\fi}%
+	% ---
+	% Informações de dados para CAPA e FOLHA DE ROSTO
+	% ---
+	\titulo{Estudo da disposição a pagar por eficiência energética: o caso dos refrigeradores no Brasil}
+	\autor{XXXXXXXXXXXXXXXXX}
+	\local{Ribeirão Preto}
+	\data{2015}
+<<<<<<< .mine
+	\orientador{Prof. Dr. Livre-Docente Cláudio Ribeiro de Lucinda}
+	\coorientador{}
+	% \instituicao{%
+	%  Universidade of São Paulo -- USP
+	%  \par
+	%  Faculdade de Economia, Admnistração e Contabilidade 
+	%  \par
+	%  FEA/USP -- Campus Ribeirão Preto 
+	%  \par
+	%  Departamento de Economia
+	%  \par
+	%  Programa de Pós-Graduação em Economia 
+	%  \par
+	%  Área de Concentração: Economia Aplicada}
+	% \tipotrabalho{Dissertação de Mestrado}
+=======
+	\orientador{Prof. Dr. Cláudio Ribeiro de Lucinda}
+	%\coorientador{\phantom{x}}
+	\instituicao{
+	  Universidade of São Paulo -- USP}
+	 % \par
+	 % Faculdade de Economia, Admnistração e Contabilidade 
+	 % \par
+	 % FEA/USP -- Campus Ribeirão Preto 
+	 % \par
+	 % Departamento de Economia
+	 % \par
+	 % Programa de Pós-Graduação em Economia 
+	 % \par
+	 % Área de Concentração: Economia Aplicada}
+	\tipotrabalho{Dissertação de Mestrado}
+>>>>>>> .r80
+	%O preambulo deve conter o tipo do trabalho, o objetivo, 
+	%o nome da instituição e a área de concentração 
+	\preambulo{Dissertação apresentada ao Programa de Pós-Graduação em Economia -- Área de Concentração: Economia Aplicada, da Faculdade de Economia, Administração e Contabilidade de Ribeirão Preto da Universidade de São Paulo, para obtenção do título de Mestre em Ciências Econômicas.}
+	% ---
+	% Configurações de aparência do PDF final
+
+	% alterando o aspecto da cor azul
+	\definecolor{blue}{RGB}{41,5,195}
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \center
+<<<<<<< .mine
+    \ABNTEXchapterfont\Large Universidade de São Paulo \\ Faculdade de Economia, Administração e Contabilidade de Ribeirão Preto \\ Departamento de Economia \\Programa de Pós-graduação em Economia \\ Área: Economia Aplicada
+=======
+    \ABNTEXchapterfont\Large Universidade de São Paulo \\ Faculdade de Economia, Administração e Contabilidade de Ribeirão Preto \\ Departamento de Economia \\Programa de Pós-graduação em Economia -- Área: Economia Aplicada
+>>>>>>> .r80
+    
+    \vspace*{1cm}
+    
+    \vfill
+
+
+    \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+    \vfill
+	%\raggedleft{\small\imprimirinstituicao \\}
+	{\raggedleft{\small\imprimirorientadorRotulo~\imprimirorientador}\par}
+	\vfill
+    \centering\large\imprimirlocal
+
+    \centering\large\imprimirdata
+    
+    \vspace*{1cm}
+  \end{capa}
+  }
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	% informações do PDF
+	\makeatletter
+	\hypersetup{
+	     	%pagebackref=true,
+			pdftitle={\@title}, 
+			pdfauthor={\@author},
+	    	pdfsubject={\imprimirpreambulo},
+		    pdfcreator={LaTeX with abnTeX2},
+			pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+			colorlinks=true,       		% false: boxed links; true: colored links
+	    	linkcolor=blue,          	% color of internal links
+	    	citecolor=blue,        		% color of links to bibliography
+	    	filecolor=magenta,      		% color of file links
+			urlcolor=blue,
+			bookmarksdepth=4
+	}
+	\makeatother
+	% --- 
+	% Espaçamentos entre linhas e parágrafos 
+	% --- 
+
+	% O tamanho do parágrafo é dado por:
+	\setlength{\parindent}{1.3cm}
+
+	% Controle do espaçamento entre um parágrafo e outro:
+	\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+	% ---
+	% compila o indice
+	% ---
+	\makeindex
+	\printnomenclature
+	%\renewcommand{\nomname}{Lista de Siglas}
+	% ---
+	% Início do documento
+	% ----
+\begin{document}
+	% Nomenclaturas
+	%\newglossaryentry{SKU}{name=SKU, description ={\textit{Stock Keeping Unit}}}
+	%\newglossaryentry{PPH}{name=PPH, description={Pesquisa de Posse de Eletrodomésticos e Hábitos de Uso}
+	% Retira espaço extra obsoleto entre as frases.
+	\frenchspacing 
+	% ----------------------------------------------------------
+	% ELEMENTOS PRÉ-TEXTUAIS
+	% ----------------------------------------------------------
+	\pretextual
+	% ---
+	% Capa
+	% ---
+	%
+	%\newpage
+	%Prof. 
+	\imprimircapa
+	% ---
+	% Contra-capa
+	% ---
+	%\newpage
+	\null
+	\vfill
+	\begin{center}
+	\large{Prof. Dr. Marco Antonio Zago}\\
+	Reitor da Universidade de São Paulo\\
+	\phantom{}
+	\large{Prof. Dr. Dante Pinheiro Martinelli}\\
+	Diretor da Faculdade de Economia, Administração e Contabilidade de Ribeirão Preto\\
+	\phantom{}
+	\large{Prof. Dr. Renato Leite Marcondes}\\
+	Chefe do Departamento de Economia \\
+	\phantom{}
+	\large{Prof. Dr. Cláudio Ribeiro de Lucinda}\\
+	Coordenador do Programa de Pós-Graduação em Economia Aplicada
+	\end{center}
+	% ---
+	% Folha de rosto
+	% (o * indica que haverá a ficha bibliográfica)
+	% ---
+	\imprimirfolhaderosto*
+	% ---
+	
+	\begin{fichacatalografica}
+
+		\Large{Autorizo a reprodução e divulgação total ou parcial deste trabalho, por qualquer meio convencional ou eletrônico, para fins de estudo e pesquisa, desde que citada a fonte.}
+
+		\normalsize
+		\vspace*{\fill}					% Posição vertical
+		\begin{center}
+		\textbf{\Large{Ficha Catalográfica}}
+		\end{center}
+		%\hrule							% Linha horizontal
+		
+		\begin{center}
+			%\setlength{\fboxsep}{5pt}
+			\framebox[1.27\width]{
+
+							% Minipage Centralizado
+			\begin{minipage}[c]{12.5cm}		% Largura
+				%\pbox{\textwidth}{
+				\phantom{a} 
+				\phantom{a} 
+				\imprimirautor \\
+				\hspace{0.5cm} \imprimirtitulo ~--~ \imprimirlocal, \imprimirdata \\
+				\hspace{0.5cm} \pageref{LastPage} p. : il.; 30 cm.\\
+				\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+				\hspace{0.5cm} \\
+				\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~ Universidade of São Paulo -- Faculdade de Economia, Admnistração e Contabilidade ~--~ FEA/USP ~--~ Campus Ribeirão Preto; Departamento de Economia
+				 \par
+				 Programa de Pós-Graduação em Economia; Área de Concentração: Economia Aplicada, \imprimirdata.}  
+				\vspace{0.5cm} \\
+				\hspace{0.5cm}
+<<<<<<< .mine
+					1. Logit Condicional. 2. Mixed Logit
+					3. Demanda por Eletrodomésticos.
+					4. Eficiência Energética. \\
+					I. Orientador: Prof. Dr. Livre-Docente Cláudio Ribeiro de Lucinda.
+=======
+					1. Logit Condicional. 2. Mixed Logit
+					3. Demanda por Eletrodomésticos.
+					4. Eficiência Energética. \\
+					I. Orientador: Prof. Dr. Cláudio Ribeiro de Lucinda.
+>>>>>>> .r80
+					II. Universidade of São Paulo -- USP -- Campus Ribeirão Preto.
+					III. Faculdade de Economia, Administração e Contabilidade.
+					IV. Estudo da Disposição a Pagar por Unidade de Eficiência Energética: O caso dos Refrigeradores no Brasil \\  			
+				\hspace{8.75cm} \\ %CDU XXXXXXXXXXXX  \\
+				%\hspace{12.5cm} 
+			\end{minipage}}
+		
+		\end{center}
+		%\hrule
+	\end{fichacatalografica}
+	% ---
+
+	% ---
+	% Inserir errata
+	% ---
+	% \begin{errata}   INSERIR ERRATA CASO ENHA A EXISTIR
+	% Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
+
+	% \vspace{\onelineskip}
+
+	% FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
+	% reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
+	% rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
+	% cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
+	% Zootecnia, Universidade de São Paulo, São Paulo, 2011.
+
+	% \begin{table}[htb]
+	% \center
+	% \footnotesize
+	% \begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
+	%   \hline
+	%    \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
+	%     \hline
+	%     1 & 10 & auto-conclavo & autoconclavo\\
+	%    \hline
+	% \end{tabular}
+	% \end{table}
+
+	% \end{errata}
+	% ---
+
+	% ---
+	% Inserir folha de aprovação
+	% ---
+
+	% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
+	% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
+	% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
+	% imagem da página assinada pela banca com o comando abaixo:
+	%
+	%\includepdf{folhadeaprovacao_final.pdf}
+	
+	\begin{folhadeaprovacao}
+
+	  \begin{center}
+	    {\ABNTEXchapterfont\large\imprimirautor}
+
+	    \vspace*{\fill}\vspace*{\fill}
+	    {\ABNTEXchapterfont\bfseries\Large\imprimirtitulo}
+	    \vspace*{\fill}
+	    
+	    \hspace{.45\textwidth}
+	    \begin{minipage}{.5\textwidth}
+	        \imprimirpreambulo
+	    \end{minipage}%
+	    \vspace*{\fill}
+	   \end{center}
+	    
+	   Trabalho Aprovado. \imprimirlocal, \phantom{aaaa} de \phantom{aaaaaaaaaaaaaaaa} de 2015
+
+	   \assinatura{\textbf{\imprimirorientador (Orientador)}  \\ Universidade de São Paulo} 
+	   \assinatura{\textbf{Prof. Dr. Cristian Huse}  \\ Escola de Economia de Estocolmo}
+	   \assinatura{\textbf{Prof. Dr. Daniel Domingues dos Santos}  \\ Universidade de São Paulo}
+	   %\assinatura{\textbf{Professor} \\ Convidado 3}
+	   %\assinatura{\textbf{Professor} \\ Convidado 4}
+	      
+	   \begin{center}
+		    \vspace*{0.5cm}
+		    {\large\imprimirlocal}
+		    \par
+		    {\large\imprimirdata}
+		    \vspace*{1cm}
+	  \end{center}
+	  
+	\end{folhadeaprovacao}
+	% ---
+
+	% ---
+	%Dedicatória
+	
+	% \begin{dedicatoria}[\textbf{Dedicatória}]
+	
+	% 	   %\vspace*{\fill}
+	% 	   \vfill
+	% 	   \raggedleft
+	% 	   \noindent
+	% 	   \textbf{\textit{  \hfill Dedico esta dissertação, e todo o trabalho e aprendizado dos últimos dois anos, ao}} %Ari Ribeiro, como prova de que é possível superar tudo, com fé, coragem e muito suor.}}
+		    	    	         	
+	% \end{dedicatoria}
+	% ---
+
+	% ---
+	% Agradecimentos
+	% ---
+	\begin{agradecimentos}
+
+	% Agradeço também, em especial, ao professor Cláudio Lucinda. Ele foi o responsável por eu estar aqui hoje, em muitos sentidos. Foi o professor que me ligou, informando-me do resultado da Anpec. Ainda hoje me lembro daquela ligação, e de quanto ele me 
+
+	Agradeço também à minha família pela apoio e suporte incondicional, mesmo que esta aventura, por vezes, parecesse sem sentido no começo. 
+
+	Agradeço por fim, à minha mãe, sem a  qual nenhum dos meus sonhos jamais poderia ter sido realizado.
+
+
+
+
+	\end{agradecimentos}
+
+	% ---
+
+	% ---
+	% Epígrafe
+	% ---
+	\cleardoublepage
+	\begin{epigrafe}
+	    \vspace*{\fill}
+		\begin{flushright}
+			\Large{\textbf{\textit{ ``If I have seen further, it is only by \\
+			    		    	         	  standing on the shoulders of giants''}}} \\
+			    	    	         		 \textbf{\text{(Isaac Newton)}} \\
+			\vspace{1cm}    	    	         		 
+			\Large{\textbf{\textit{``Tell me, and I’ll forget. \\
+								   Show me, and I may remember. \\
+								   But involve me, and I’ll understand''}}} \\
+			 								\textbf{\text{(Xunzi, \textit{Chinese Confucian philosopher})}}
+
+		\end{flushright}
+	\end{epigrafe}
+	% ---
+
+	% ---
+	% RESUMOS
+	% ---
+	\cleardoublepage
+
+	\begin{resumo}   %%%%%%%%%%%%%%%%   REFAZER RESUMOS AO FINAL PARA AJUSTAR COM OS RESULTADOS OBTIDOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		O  presente trabalho pretende estudar a disposição a pagar do consumidor brasileiro por produtos com maior eficiência energética. Entender o quanto o consumidor está disposto a pagar por um ganho de eficiência pode contribuir na elaboração de políticas públicas  para o setor elétrico, e na criação de incentivos à indústria para produção e investimentos neste tipo de tecnologia. O trabalho utiliza-se de uma pesquisa de campo sobre posse de equipamentos e hábitos de uso, realizada pela Eletrobrás/Procel em 2005. A metodologia empregada segue a linha de trabalhos já realizados em outros países, a exemplo dos estudos realizados por \citeonline{mcfadden1984} e \citeonline{sammer2006}, no qual empregam modelos de escolha discreta-contínua para estimar a demanda por novos eletrodomésticos. Os resultados encontrados apontam para uma subestimação dos consumidores quanto à avaliação da economia proporcionada por produtos mais eficientes. Sendo assim, abre-se espaço para campanhas de conscientização e valorização dessas tecnologias.
+
+		\vspace{\onelineskip}
+
+		\noindent
+		\textbf{Key-words}: Modelos de Demanda Mixed Logit. Demanda de Eletrodomésticos. Eficiência Energética.
+	\end{resumo}
+
+	% resumo em inglês
+	\begin{resumo}[Abstract]
+		\begin{otherlanguage*}{english}
+			\citetext{ari2015eng} \\
+
+	   		The focus of this research is to investigate the brazilian consumer's willingness to pay for products with more energy efficiency. Measuring how much the consumer is willing to pay could provide us with good insights that may help in discussing politics regarding the eletric sector, plus it may guide politics in taking actions and decisions on incentives in order to promote this kind of efficient technologic products. This investigation is based on a field research regarding the possess of appliances and their uses, consisting of 4310 household questionaires. The methodology applied follows previous work on this field and similar studies made for other countries. Examples are \citeonline{mcfadden1984} for space and water heating in the USA and \citeonline{sammer2006} for washing machines in the Switzerland. Both studies work on discrete-continous choice models for a better appliance demand estimation. The results make clear an underestimation of the monetary economy due to the use of more efficient products. Therefore, there's an opportunity for the government to motivate and promote this kind of tecnology, either through advertising for and awareness of the general population, or through subsides to the industry to produce more efficient products.
+
+	   		\vspace{\onelineskip}
+	 
+		   \noindent 
+		   \textbf{Key-words}: Mixed Logit Demand Models. Appliance Demand.	Energetic Efficiency.
+	 	\end{otherlanguage*}
+	\end{resumo}
+
+	% % resumo em francês 
+	% \begin{resumo}[Résumé]
+	%  \begin{otherlanguage*}{french}
+	%     Il s'agit d'un résumé en français.
+	 
+	%    \vspace{\onelineskip}
+	 
+	%    \noindent
+	%    \textbf{Mots-clés}: latex. abntex. publication de textes.
+	%  \end{otherlanguage*}
+	% \end{resumo}
+
+	% % resumo em espanhol
+	% \begin{resumo}[Resumen]
+	%  \begin{otherlanguage*}{spanish}
+	%    Este es el resumen en español.
+	  
+	%    \vspace{\onelineskip}
+	 
+	%    \noindent
+	%    \textbf{Palabras clave}: latex. abntex. publicación de textos.
+	%  \end{otherlanguage*}
+	% \end{resumo}
+	% ---
+	% inserir lista de ilustrações
+	% ---
+	\pdfbookmark[0]{\listfigurename}{lof}
+	\listoffigures*
+	\cleardoublepage
+	% ---
+	% inserir lista de tabelas
+	% ---
+	\pdfbookmark[0]{\listtablename}{lot}
+	\listoftables*
+	\cleardoublepage
+
+	%\printglossaries
+	% ---
+	% % inserir lista de abreviaturas e siglas
+	% % ---
+	% \begin{siglas}
+	%   \item[Fig.] Area of the $i^{th}$ component
+	%   \item[456] Isto é um número
+	%   \item[123] Isto é outro número
+	%   \item[lauro cesar] este é o meu nome
+	% \end{siglas}
+	% % ---
+
+	% % ---
+	% % inserir lista de símbolos
+	% % ---
+	% \begin{simbolos}
+	%   \item[$ \Gamma $] Letra grega Gama
+	%   \item[$ \Lambda $] Lambda
+	%   \item[$ \zeta $] Letra grega minúscula zeta
+	%   \item[$ \in $] Pertence
+	% \end{simbolos}
+	% % ---
+
+	% ---
+	% inserir o sumario
+	% ---
+	\pdfbookmark[0]{\contentsname}{toc}
+	\tableofcontents*
+	\cleardoublepage
+	% ---
+	% ----------------------------------------------------------
+	% ELEMENTOS TEXTUAIS
+	% ----------------------------------------------------------
+	\textual
+
+	% ----------------------------------------------------------
+	% Introdução
+	% ----------------------------------------------------------
+	\chapter[Introdução]{Introdução}
+		\addcontentsline{toc}{chapter}{Introdução}
+
+		O foco deste projeto é o estudo da disposição a pagar do consumidor por produtos com maior eficiência energética. Neste trabalho focaremos o caso dos refrigeradores domésticos, devido à sua importância e forte presença nos domicílios brasileiros. Este estudo vêm ao encontro das políticas de longo prazo de diversificação e ampliação da matriz energética brasileira, assim como políticas de incentivo ao consumo de bens e produtos mais eficientes.
+	% ---
+	% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
+	% ---
+	\bookmarksetup{startatroot}% 
+	% ---
+
+	% ---
+	% Conclusão
+	% ---
+	% \chapter*[Conclusão]{Conclusão}
+	% \addcontentsline{toc}{chapter}{Conclusão}
+
+	% Conclusão final
+
+	% ----------------------------------------------------------
+	% ELEMENTOS PÓS-TEXTUAIS
+	% ----------------------------------------------------------
+	\postextual
+
+
+	% ----------------------------------------------------------
+	% Referências bibliográficas
+	% ----------------------------------------------------------
+	\bibliography{referencias}
+
+	% ----------------------------------------------------------
+	% Glossário
+	% ----------------------------------------------------------
+	%
+	% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+	%
+	%\glossary
+
+	% ----------------------------------------------------------
+	% Apêndices
+	% ----------------------------------------------------------
+
+	% ---
+	% Inicia os apêndices
+	---
+	\begin{apendicesenv}
+
+	% Imprime uma página indicando o início dos apêndices
+	\partapendices
+
+	\chapter{Tabelas Consumo Energético}
+
+		As tabelas a seguir resumem os modelos/SKUs de refrigeradores presentes na base PPH/Procel, junto das respectivas informações de consumo energético e classe de consumo (Selo Procel). Para as colunas de consumo energético, a sigla CM representa os consumos advindos do trabalho de \citeonline{melo2009}, enquanto que a coluna Procel contém informações advindas dos catálogos Procel pesquisados. A coluna Outros contém informações de outras fontes.
+	\end{apendicesenv}
+	% % ---
+
+
+	% ----------------------------------------------------------
+	% Anexos
+	% ----------------------------------------------------------
+
+	% ---
+	% Inicia os anexos
+	% ---
+	% \begin{anexosenv}
+
+	% % Imprime uma página indicando o início dos anexos
+	% \partanexos
+
+	% % ---
+	% \chapter{Morbi ultrices rutrum lorem.}
+	% % ---
+	% \lipsum[30]
+
+	% % ---
+	% \chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
+	% parturient montes nascetur ridiculus mus}
+	% % ---
+
+	% \lipsum[31]
+
+	% % ---
+	% \chapter{Fusce facilisis lacinia dui}
+	% % ---
+
+	% \lipsum[32]
+
+	% \end{anexosenv}
+
+	%---------------------------------------------------------------------
+	% INDICE REMISSIVO
+	%---------------------------------------------------------------------
+
+	\printindex
+
+	\end{document}
